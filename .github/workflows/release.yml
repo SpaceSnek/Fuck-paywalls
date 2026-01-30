@@ -21,7 +21,9 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: fuckPaywalls.zip
+          files: |
+            chrome-extension.zip
+            firefox-extension.zip
           name: Release ${{ github.ref_name }}
           draft: true
           prerelease: true
