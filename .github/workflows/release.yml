@@ -1,0 +1,29 @@
+# Github Actions workflow to automatically package the Extension
+name: Package Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Zip Extension
+        run: zip -r fuckPaywalls.zip manifest.json background.js
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: fuckPaywalls.zip
+          name: Release ${{ github.ref_name }}
+          draft: true
+          prerelease: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
