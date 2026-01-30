@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Zip Extension
-        run: zip -r fuckPaywalls.zip manifest.json background.js
+        run: zip -r fuckPaywalls.zip . -x ".github/*" "README.md"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
