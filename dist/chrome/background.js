@@ -19,7 +19,4 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 });
 
 
-//to do: 
-// 1. add check for gifted links to ignore arhive.ph to remove excess overhead to them
-// 2. Add a nice icon
-// 3. add function to open page in archive.ph by clicking on extension if pinned???
+//woah you read source code :) 
