@@ -1,9 +1,13 @@
 {
   "manifest_version": 3,
   "name": "Fuck Paywalls",
-  "version": "0.1",
+  "version": "1.2",
   "description": "Right-click to open your curent page or a link in archive.ph to bypass paywalls. (Should work most of the time, but if its not archive sorry :(",
   "permissions": ["contextMenus", "tabs"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Fuck Paywalls"
+  },
   "background": {
     "service_worker": "background.js"
   }

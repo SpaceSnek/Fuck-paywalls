@@ -1,6 +1,5 @@
-# Github Actions workflow to automatically package the Extension
-name: Package Release
 
+name: Package Release
 on:
   push:
     tags:
@@ -15,8 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Zip Extension
-        run: zip -r fuckPaywalls.zip . -x ".github/*" "README.md"
+      - name: Zip Chrome Extension
+        run: cd dist/chrome && zip -r ../../chrome-extension.zip .
+
+      - name: Zip Firefox Extension
+        run: cd dist/firefox && zip -r ../../firefox-extension.zip .
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
